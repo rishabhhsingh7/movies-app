@@ -1,22 +1,16 @@
-.Header {
+.Header{
     background-color: #222;
     height: 36px;
-    padding: 8px 32px 8px 16px;
+    padding: 8px 32px 8px 16px ;
 }
-
-img {
+.headerlogo{
     background-color: #ad8282;
     height: 35px;
-    animation: headerLogo 8s linear infinite;
+    animation: headerLogo 8s linear infinite  ;
     float: left;
+   
 }
-
-@keyframes headerLogo {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+@keyframes headerLogo{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
 }
