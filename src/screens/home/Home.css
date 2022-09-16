@@ -19,3 +19,8 @@ h1 {
 .left img:hover {
     cursor: pointer;
 }
+
+.right {
+    width: 24%;
+    margin: 16px;
+}
