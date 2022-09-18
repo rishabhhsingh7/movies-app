@@ -1,6 +1,6 @@
 import React from "react";
 import "./Home.css";
-import Header from "../../common/header/Header";
+import { Link } from "react-router-dom";
 import moviesData from "../../common/moviesData";
 import { useState } from "react";
 import { createTheme } from "@material-ui/core/styles";
@@ -14,8 +14,6 @@ import {
   FormControl,
   MenuItem,
   Select,
-  FormGroup,
-  Checkbox,
   Button,
   InputLabel,
   Input,
@@ -24,6 +22,7 @@ import Grid from "@material-ui/core/Grid";
 
 const Home = () => {
   const theme = createTheme();
+
   const [MovieData, setMovieData] = useState(moviesData);
   const [filterData, setFilterData] = useState(moviesData);
   const [inputValue, setInputValue] = useState({
@@ -33,16 +32,9 @@ const Home = () => {
     ReleaseDatestart: "",
     ReleaseDateEnd: "",
   });
-  const {
-    Moviename,
-    Genres,
-    Artists,
-    ReleaseDateEnd,
-    ReleaseDatestart,
-  } = inputValue;
+  const { Moviename, ReleaseDateEnd, ReleaseDatestart } = inputValue;
 
   const handleInputChange = (e) => {
-    console.log(e.target.value);
     setInputValue({ ...inputValue, [e.target.name]: [e.target.value] });
   };
 
@@ -70,7 +62,7 @@ const Home = () => {
         } else if (inputValue.Genres) {
           console.log(movie.genres + ":" + inputValue.Genres[0]);
 
-          if (inputValue.Genres[0].join() == movie.genres.join()) {
+          if (inputValue.Genres[0].join() === movie.genres.join()) {
             isCorrectValue = true;
           }
         }
@@ -79,7 +71,7 @@ const Home = () => {
           filteredMovie.push(movie);
         }
       });
-      console.log(filteredMovie);
+
       setFilterData(filteredMovie);
     } catch (error) {
       console.log(error);
@@ -88,7 +80,6 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
       <h1>
         <span>Upcoming Movies</span>
       </h1>
@@ -122,9 +113,9 @@ const Home = () => {
           <ImageList rowHeight={350} cols={4}>
             {filterData.map((movie, index) => (
               <ImageListItem key={`${index}_movie1`}>
-                <a href="">
+                <Link to={`/details/${movie.title}`}>
                   <img src={movie.poster_url} alt={movie.title} />{" "}
-                </a>
+                </Link>
 
                 <ImageListItemBar
                   title={movie.title}

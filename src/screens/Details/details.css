@@ -1,0 +1,35 @@
+.homelink {
+    margin-left: 24px;
+    margin-top: 8px;
+    margin-bottom: 0;
+    height: 24px;
+    text-decoration: none;
+    font-size: larger;
+    font-weight: bold;
+
+}
+
+.homelink:hover {
+    cursor: pointer;
+
+}
+
+.flex-container {
+    display: flex;
+}
+
+.leftdata {
+    width: 20%;
+    margin-left: 2%;
+}
+
+.middledata {
+    width: 60%;
+    background-color: whitesmoke;
+
+}
+
+.rightdata {
+    width: 20%;
+    margin-left: 2%;
+}
